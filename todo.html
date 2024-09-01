@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo</title>
+</head>
+<body>
+    <input>
+    <button onclick="add()">Add</button>
+    <ul>
+        <li>Hello
+            <button onclick="deleteItem(event)">Delete</button>
+        </li>
+    </ul>
+    <script>
+        var ip = document.querySelector("input")
+        var ul = document.querySelector("ul")
+        function add()
+        {
+            var li = document.createElement("li")
+            li.innerHTML = ip.value + " <button onclick='deleteItem(event)'>Delete</button>"
+            ul.append(li)
+        }
+
+        function deleteItem()
+        {
+            event.target.parentElement.remove()
+        }
+    </script>
+</body>
+</html>

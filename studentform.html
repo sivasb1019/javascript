@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+            background-color: #f5f5f5;
+        }
+
+        #form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            width: 300px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        select {
+            width: calc(100% - 12px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #05f8fc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #04c7cb;
+        }
+    </style>
+</head>
+<body>
+    <div id="form-container">
+        <form id="student-form">
+            <table id="form">
+                <tr>
+                    <th>Name</th>
+                    <td><input id="name" type="text" placeholder="Enter your name..." required></td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td><input id="age" type="number" placeholder="Enter your age..." required></td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>
+                        <select id="gender">
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Course</th>
+                    <td>
+                        <select id="course">
+                            <option>Python Programming</option>
+                            <option>Java Programming</option>
+                            <option>Web Development</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td><input id="email" type="email" placeholder="Enter your email..." required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button onclick="display()">Save</button></td>
+                </tr>
+            </table>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th>AGE</th>
+                        <th>COURSE</th>
+                        <th>GENDER</th>
+                        <th>EMAIL</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+
+                </tbody>
+
+            </table>
+        </form>
+    </div>
+   <script>
+        function display() {
+            var tbody = document.getElementById("table-body");
+            var name = document.getElementById('name').value;
+            var age = document.getElementById('age').value;
+            var gender = document.getElementById('gender').value;
+            var course = document.getElementById('course').value;
+            var email = document.getElementById('email').value;
+
+            var tr = document.createElement("tr");
+            tr.innerHTML = `<td>${name}</td>
+                            <td>${age}</td>
+                            <td>${course}</td>
+                            <td>${gender}</td>
+                            <td>${email}</td>
+                            <td><button onclick="deleteStudent(event)">Delete</button></td>`;
+            tbody.appendChild(tr);
+        }
+
+        function deleteStudent(event) {
+            event.target.parentElement.parentElement.remove();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 3</title>
+</head>
+<body>
+    <h1 id="result">Text</h1>
+    <button onclick="show(event)">SB</button>
+    <button onclick="show(event)">Siva</button>
+    <button onclick="show(event)">10</button>
+    <script>
+        var result = document.getElementById("result")
+        function show()
+        {
+            result.textContent = event.target.textContent
+        }
+    </script>
+</body>
+</html>

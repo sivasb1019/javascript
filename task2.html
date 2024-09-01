@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task2</title>
+</head>
+<body>
+    <button onclick="add()">Add Hello</button>
+    <div id="result"></div>
+    <script>
+        var div = document.getElementById("result")
+        function add()
+        {
+            var h1list = document.createElement("h1")
+            h1list.textContent = "Hello"
+            div.prepend(h1list)
+        }
+    </script>
+</body>
+</html>
